@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const cors = require("cors");
 // connect Data base
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
@@ -17,15 +17,16 @@ mongoose.connection.on("error", (err) => {
 });
 // import routes
 const articleRoutes = require("./routes/article.routes");
-const categoryRoutes = require('./routes/category.routes')
-const authRoutes = require('./routes/auth.routes')
+const categoryRoutes = require("./routes/category.routes");
+const authRoutes = require("./routes/auth.routes");
 // middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 // routes middlewares
-app.use("/articles", articleRoutes);
-app.use("/categories", categoryRoutes)
-app.use('/auth', authRoutes)
+app.use("/api/articles", articleRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/auth", authRoutes);
 const port = 8000;
 
 app.listen(port, () => {
