@@ -1,8 +1,12 @@
 import './App.css';
-
+//redux
+import {Provider} from 'react-redux'
+import store from './store';
 function App() {
   return (
-    <div>Hello World</div>
+    <Provider store={store}>
+      <div>Hello World</div>
+    </Provider>
   );
 }
 
