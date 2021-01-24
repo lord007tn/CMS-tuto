@@ -9,28 +9,28 @@ const Register = (props) => {
           <input
             type="text"
             placeholder="First Name"
-            className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none"
+            className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
           />
-          <input
+          <input 
             type="text"
             placeholder="Last Name"
-            className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none"
+            className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
           />
         </div>
         <input
           type="text"
           placeholder="Email"
-          className="block w-full mx-auto text-sm py-2 px-3 rounded focus:outline-none"
+          className="block w-full mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
         />
         <input
           type="password"
           placeholder="Password"
-          className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none"
+          className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none text-black"
         />
         <input
           type="password"
           placeholder="Confirm Password"
-          className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none"
+          className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none text-black"
         />
         <button className="bg-gray-700 text-gray-200 p-3 mr-1 rounded hover:text-gray-700 hover:bg-transparent font-bold block mx-auto w-full">
           Register
