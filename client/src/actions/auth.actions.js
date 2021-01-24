@@ -2,12 +2,35 @@ import {
   LOGIN_SUCCESS,
   REGISTER_SUCCESS,
   AUTH_ERROR,
-  AUTH_FAILED,
   LOGOUT,
   USER_LOADED,
   USER_LOADING,
 } from "./types";
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
+
+export const loadUser = () => async dispatch => {
+  dispatch({
+    type: USER_LOADING
+  })
+
+  if (localStorage.token) {
+    setAuthToken(localStorage.token)
+  }
+
+  try {
+    const res = await axios.get('/api/auth/authcheck')
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data
+    })
+  } catch (err) {
+        dispatch({
+          type: AUTH_ERROR,
+          payload: err,
+        });
+  }
+}
 export const login = (email, password) => async (dispatch) => {
   dispatch({
     type: USER_LOADING,

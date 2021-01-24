@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { login } from "../../../actions/auth.actions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const Login = ({ login, auth }) => {
   const [loginData, setLoginData] = useState({
@@ -18,6 +19,10 @@ const Login = ({ login, auth }) => {
     e.preventDefault();
     login(loginData.email, loginData.password);
   };
+
+  if (auth.isAuthenticated) {
+    return <Redirect to="/" />
+  }
   return (
     <div className="container bg-gray-100 my-auto">
       <form

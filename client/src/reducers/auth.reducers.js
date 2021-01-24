@@ -41,7 +41,6 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case AUTH_ERROR:
-    case AUTH_FAILED:
     case LOGOUT:
       localStorage.removeItem("token");
       return {

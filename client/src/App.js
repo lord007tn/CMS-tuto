@@ -1,5 +1,6 @@
 import "./App.css";
 //redux
+import react, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import { Fragment } from "react";
@@ -9,7 +10,15 @@ import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import setAuthToken from "./utils/setAuthToken";
+import { loadUser } from "./actions/auth.actions";
 function App() {
+  useEffect(() => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+    store.dispatch(loadUser());
+  }, []);
   return (
     <Provider store={store}>
       <Fragment>

@@ -2,7 +2,16 @@ const router = require("express").Router();
 const User = require('../models/user.models');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const verifyToken = require("../utils/verifyToken");
 
+router.get('/authcheck', verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.verifiedUser._id)
+    return res.status(200).json(user)
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+})
 router.post("/register", async(req,res)=>{
 
     const emailExist = await User.findOne({email: req.body.email})
