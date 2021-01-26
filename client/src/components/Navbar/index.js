@@ -38,15 +38,20 @@ const Navbar = ({ auth, logout }) => {
       {auth.isAuthenticated && (
         <div className=" mx-2 my-auto">
           <Link
+            to="/dashboard"
+            className=" bg-gray-700 text-gray-200 p-3 mr-1 rounded hover:text-gray-700 hover:bg-transparent">
+            Dashboard
+          </Link>
+          <Link
             to="/profile"
             className=" bg-gray-700 text-gray-200 p-3 mr-1 rounded hover:text-gray-700 hover:bg-transparent">
             Profile
           </Link>
-          <button
+          <Link
             className=" bg-gray-700 text-gray-200 p-3 ml-1 rounded hover:text-gray-700 hover:bg-transparent"
             onClick={(e) => logout()}>
             Logout
-          </button>
+          </Link>
         </div>
       )}
     </nav>

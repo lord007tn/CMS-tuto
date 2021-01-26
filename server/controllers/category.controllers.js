@@ -32,11 +32,11 @@ const createCategory =async (req,res)=>{
          return res.status(500).json(err);
        }
 };
-const deletCategory = async(req,res)=>{
+const deleteCategory = async(req,res)=>{
   const slug = req.params.categoryslug;
   try {
     const deletedCategory = await Category.findOneAndUpdate({categorySlug: slug});
-    return res.status(200).json(`${deletedCategory._id} is deleted succefully`)
+    return res.status(200).json({ deletedCategory: deletedCategory});
   } catch (err) {
     return res.status(500).json(err)
   }
@@ -60,6 +60,6 @@ return res.status(200).json({ updatedCategory: updatedCategory})
 
 module.exports.updateCategory = updateCategory
 module.exports.createCategory = createCategory
-module.exports.deletCategory = deletCategory
+module.exports.deleteCategory = deleteCategory
 module.exports.getCategoryBySlug= getCategoryBySlug
 module.exports.getCategories =getCategories

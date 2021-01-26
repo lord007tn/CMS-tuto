@@ -18,18 +18,23 @@ const Login = ({ login, auth }) => {
   const onSubmitData = (e) => {
     e.preventDefault();
     login(loginData.email, loginData.password);
+    setLoginData({
+      email: "",
+      password: ""
+    })
   };
 
   if (auth.isAuthenticated) {
     return <Redirect to="/" />
   }
   return (
-    <div className="container bg-gray-100 my-auto">
+    <div className="container mx-auto bg-gray-100 my-auto">
       <form
         onSubmit={(e) => onSubmitData(e)}
         className="bg-blue text-center w-1/3 px-3 py-4 text-black mx-auto rounded">
         <input
           onChange={(e) => onChangeData(e)}
+          value={loginData.email}
           id="email"
           name="email"
           type="text"
@@ -38,6 +43,7 @@ const Login = ({ login, auth }) => {
         />
         <input
           onChange={(e) => onChangeData(e)}
+          value={loginData.password}
           id="password"
           name="password"
           type="password"

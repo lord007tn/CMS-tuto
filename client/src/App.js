@@ -1,6 +1,5 @@
-import "./App.css";
 //redux
-import react, { useEffect } from "react";
+import { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 import { Fragment } from "react";
@@ -12,6 +11,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth.actions";
+import Dashboard from "./components/Dashboard";
+import dashboardRoutes from "./routing/dashboardRoutes";
 function App() {
   useEffect(() => {
     if (localStorage.token) {
@@ -29,6 +30,7 @@ function App() {
               <Route exact path="/" component={Landing} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+              <Route component={dashboardRoutes} />
             </Switch>
             <Footer />
           </Router>

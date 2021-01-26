@@ -41,7 +41,7 @@ const Register = ({ register, auth }) => {
       return <Redirect to="/" />;
     }
   return (
-    <div className="container bg-gray-100 my-auto">
+    <div className="container mx-auto bg-gray-100 my-auto">
       <form
         onSubmit={(e) => onSubmitData(e)}
         className="text-center w-1/3 px-3 py-4 text-white mx-auto rounded">
@@ -49,6 +49,7 @@ const Register = ({ register, auth }) => {
           <input
             name="firstName"
             id="firstName"
+            value={registerData.firstName}
             type="text"
             placeholder="First Name"
             className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
@@ -57,6 +58,7 @@ const Register = ({ register, auth }) => {
           <input
             name="lastName"
             id="lastName"
+            value={registerData.lastName}
             type="text"
             placeholder="Last Name"
             className="block w-1/2 mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
@@ -66,6 +68,7 @@ const Register = ({ register, auth }) => {
         <input
           name="email"
           id="email"
+          value={registerData.email}
           type="text"
           placeholder="Email"
           className="block w-full mx-auto text-sm py-2 px-3 rounded focus:outline-none text-black"
@@ -74,6 +77,7 @@ const Register = ({ register, auth }) => {
         <input
           name="password"
           id="password"
+          value={registerData.password}
           type="password"
           placeholder="Password"
           className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none text-black"
@@ -82,6 +86,7 @@ const Register = ({ register, auth }) => {
         <input
           name="confirmPassword"
           id="confirmPassword"
+          value={registerData.confirmPassword}
           type="password"
           placeholder="Confirm Password"
           className="block w-full mx-auto text-sm py-2 px-3 rounded my-3 focus:outline-none text-black"
